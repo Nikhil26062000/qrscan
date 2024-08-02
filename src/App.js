@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import QRCodeScanner from './QRCodeScanner';
 
-function App() {
+const App = () => {
+  const [scannedData, setScannedData] = useState('');
+
+  const handleScan = (data) => {
+    setScannedData(data);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>QR Code Scanner</h1>
+      <QRCodeScanner onScan={handleScan} />
+      {scannedData && (
+        <div>
+          <h2>Scanned Data:</h2>
+          <p>{scannedData}</p>
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default App;
