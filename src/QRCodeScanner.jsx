@@ -1,43 +1,68 @@
-import React, { useRef, useEffect, useCallback } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Webcam from 'react-webcam';
-import jsQR from 'jsqr';
+import { BrowserMultiFormatReader, NotFoundException } from '@zxing/library';
 
 const QRCodeScanner = ({ onScan }) => {
   const webcamRef = useRef(null);
-
-  const capture = useCallback(() => {
-    const imageSrc = webcamRef.current.getScreenshot();
-    if (imageSrc) {
-      const img = new Image();
-      img.src = imageSrc;
-      img.onload = () => {
-        const canvas = document.createElement('canvas');
-        canvas.width = img.width;
-        canvas.height = img.height;
-        const context = canvas.getContext('2d');
-        context.drawImage(img, 0, 0, img.width, img.height);
-        const imageData = context.getImageData(0, 0, img.width, img.height);
-        const code = jsQR(imageData.data, imageData.width, imageData.height);
-        if (code) {
-          onScan(code.data);
-        }
-      };
-    }
-  }, [onScan]);
+  const [currentDeviceId, setCurrentDeviceId] = useState(null);
+  const [devices, setDevices] = useState([]);
 
   useEffect(() => {
-    const interval = setInterval(capture, 300);
-    return () => clearInterval(interval);
-  }, [capture]);
+    const codeReader = new BrowserMultiFormatReader();
+    console.log('ZXing code reader initialized');
+
+    const scan = () => {
+      if (webcamRef.current && currentDeviceId) {
+        codeReader.decodeFromVideoDevice(currentDeviceId, webcamRef.current.video, (result, err) => {
+          if (result) {
+            console.log('QR Code detected:', result.getText());
+            onScan(result.getText());
+          }
+          if (err && !(err instanceof NotFoundException)) {
+            console.error('Error during QR code scan:', err);
+          }
+        });
+      }
+    };
+
+    scan();
+
+    return () => {
+      codeReader.reset();
+    };
+  }, [currentDeviceId, onScan]);
+
+  useEffect(() => {
+    const getDevices = async () => {
+      const devices = await navigator.mediaDevices.enumerateDevices();
+      const videoDevices = devices.filter(device => device.kind === 'videoinput');
+      setDevices(videoDevices);
+      if (videoDevices.length > 0) {
+        setCurrentDeviceId(videoDevices[0].deviceId);
+      }
+    };
+
+    getDevices();
+  }, []);
+
+  const handleSwitchCamera = () => {
+    const currentIndex = devices.findIndex(device => device.deviceId === currentDeviceId);
+    const nextIndex = (currentIndex + 1) % devices.length;
+    setCurrentDeviceId(devices[nextIndex].deviceId);
+  };
 
   return (
     <div>
       <Webcam
         audio={false}
         ref={webcamRef}
+        videoConstraints={{ deviceId: currentDeviceId }}
         screenshotFormat="image/jpeg"
         style={{ width: '100%' }}
       />
+      <button onClick={handleSwitchCamera}>
+        Switch Camera
+      </button>
     </div>
   );
 };
