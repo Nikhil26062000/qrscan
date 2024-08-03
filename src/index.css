@@ -20,7 +20,6 @@ code {
 
 }
 
-
 .ReactModal__Overlay {
   background-color: rgba(0, 0, 0, 0.75);
   display: flex;
@@ -41,4 +40,22 @@ code {
   background: white;
   border-radius: 4px;
   outline: none;
+}
+
+.qrContainer {
+  position: relative;
+  z-index: 1;
+}
+
+.Modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.Overlay {
+  background: none;
+  z-index: 5;
 }
