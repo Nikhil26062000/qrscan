@@ -13,12 +13,13 @@ code {
 }
 
 
-/* 
-.qrContainer {
-  width: 500px;
-  height:500px;
 
-} */
+ .main_Container {
+  width: 100%;
+  height:80vh;
+  background-color: blueviolet;
+
+} 
 
 .ReactModal__Overlay {
   background-color: rgba(255, 255, 255, 0.75);
