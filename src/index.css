@@ -19,3 +19,26 @@ code {
   height:500px;
 
 }
+
+
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ReactModal__Content {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  margin: auto;
+  width: 80%;
+  max-width: 500px;
+  padding: 20px;
+  background: white;
+  border-radius: 4px;
+  outline: none;
+}
