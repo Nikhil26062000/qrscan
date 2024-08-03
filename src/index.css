@@ -22,8 +22,10 @@ code {
 .ReactModal__Overlay {
   background-color: rgba(0, 0, 0, 0.75);
   display: flex;
-  align-items: flex-end; /* Align to bottom of the screen */
-  justify-content: center;
+  flex-direction: column;
+  
+  
+  justify-content: flex-end;
 }
 
 .ReactModal__Content {
@@ -32,7 +34,7 @@ code {
   max-width: 500px;
   max-height: 400px; /* Set maximum height for the modal */
   padding: 20px;
-  background: white;
+  background: rgb(64, 225, 64);
   border-radius: 4px;
   outline: none;
   overflow-y: auto; /* Add scroll if content overflows */
