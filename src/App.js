@@ -99,7 +99,7 @@ const App = () => {
 
   return (
     <div className="main_Container">
-      <h1>QR Code Scanner</h1>
+      <h1>QR Code Functionalty</h1>
       <QRCodeScanner onScan={handleScan} isScanning={isScanning} />
       <Modal
         isOpen={!isScanning}
@@ -116,7 +116,7 @@ const App = () => {
             </div>
           ))
         ) : (
-          <p>No matching data found.</p>
+          <p>No Data found.</p>
         )}
         <button onClick={handleBack}>Back</button>
       </Modal>
