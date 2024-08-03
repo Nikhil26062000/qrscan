@@ -153,7 +153,7 @@ const App = () => {
 
   return (
     <div className="main_Container">
-      <h1>QR Code Scanner</h1>
+     <p>QRR testing</p>
       <QRCodeScanner onScan={handleScan} />
       {scannedData && (
         <div>
