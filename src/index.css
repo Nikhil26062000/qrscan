@@ -32,8 +32,8 @@ code {
 
   background-color: rgba(0, 0, 0, 0.75);
   width: 100%; /* Adjust width as needed */
-  max-width: 300px; /* Adjust maximum width as needed */
-  height: 250px; /* Set height for the modal */
+  max-width: 100px; /* Adjust maximum width as needed */
+  height: 50px; /* Set height for the modal */
   background: rgb(126, 94, 94);
   border-radius: 4px;
   outline: none;
