@@ -269,6 +269,7 @@ const QRCodeScanner = ({ onScan }) => {
 
   return (
     <div className="qrContainer">
+    <p>QRR testing</p>
       <Webcam
         audio={false}
         ref={webcamRef}
