@@ -128,15 +128,12 @@
 
 
 
-
 import React, { useState } from 'react';
 import QRCodeScanner from './QRCodeScanner';
-import Modal from 'react-modal';
 
 const App = () => {
   const [scannedData, setScannedData] = useState('');
   const [filterData, setFilterData] = useState([]);
-  const [isScanning, setIsScanning] = useState(true);
 
   const person = [
     { name: 'John', age: 34, id: 1001 },
@@ -152,43 +149,31 @@ const App = () => {
     setScannedData(data);
     const filteredData = person.filter(person => person.id === parseInt(data));
     setFilterData(filteredData);
-    setIsScanning(false); // Stop scanning when QR code is detected
-  };
-
-  const handleBack = () => {
-    setScannedData('');
-    setFilterData([]);
-    setIsScanning(true); // Resume scanning
   };
 
   return (
     <div className="main_Container">
       <h1>QR Code Scanner</h1>
-      <QRCodeScanner onScan={handleScan} isScanning={isScanning} />
-      <Modal
-        isOpen={!isScanning}
-        onRequestClose={handleBack}
-        contentLabel="Scanned Data"
-        ariaHideApp={false}
-        className="Modal"
-        overlayClassName="Overlay"
-      >
-        <h2>Scanned Data:</h2>
-        <p>{scannedData}</p>
-        {filterData.length > 0 ? (
-          filterData.map((ele, index) => (
-            <div key={index}>
-              <p>{ele.name}</p>
-            </div>
-          ))
-        ) : (
-          <p>No matching data found.</p>
-        )}
-        <button onClick={handleBack}>Back</button>
-      </Modal>
+      <QRCodeScanner onScan={handleScan} />
+      {scannedData && (
+        <div>
+          <h2>Scanned Data:</h2>
+          <p>{scannedData}</p>
+          {filterData.length > 0 ? (
+            filterData.map((ele, index) => (
+              <div key={index}>
+                <p>{ele.name}</p>
+              </div>
+            ))
+          ) : (
+            <p>No matching data found.</p>
+          )}
+        </div>
+      )}
     </div>
   );
 };
 
 export default App;
+
 
