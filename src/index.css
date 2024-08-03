@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-/* Main container styling */
+/* 
 .main_Container {
   width: 100%;
   height: 100vh;
@@ -20,24 +20,60 @@ code {
   position: relative !important;
 }
 
-/* Modal overlay styling */
+
 .ReactModal__Overlay {
-  background-color: rgba(0, 0, 0, 0.5); /* Slightly less opaque for better visibility of camera */
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex !important;
-  align-items: flex-end !important; /* Align modal to the bottom */
-  justify-content: center !important; /* Center horizontally */
-  position: relative; /* Needed for absolutely positioning the content */
+  align-items: flex-end !important;
+  justify-content: center !important; 
+  position: relative; 
 }
 
-/* Modal content styling */
+
 .ReactModal__Content {
-  position: relative !important; /* Position relative to overlay */
-  bottom: 0 !important; /* Stick to the bottom */
-  width: 100% !important; /* Full width of the screen */
-  max-width: 100% !important; /* Maximum width of 100% */
-  height: 300px !important; /* Height of the modal */
+  position: relative !important; 
+  bottom: 0 !important; 
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 300px !important; 
   background: rgb(126, 94, 94) !important;
   border-radius: 4px !important;
   outline: none !important;
-  overflow-y: auto !important; /* Enable scrolling if content overflows */
+  overflow-y: auto !important; } */
+
+
+
+
+  /* Main container styling */
+.main_Container {
+  width: 100%;
+  height: 100vh;
+  background-color: blueviolet;
+  position: relative;
+}
+
+/* Popup overlay styling */
+.popupOverlay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 300px; /* Set height for the popup */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  align-items: flex-end; /* Align popup to bottom */
+  justify-content: center; /* Center horizontally */
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+/* Popup content styling */
+.popupContent {
+  width: 100%;
+  max-width: 100%;
+  background: rgb(126, 94, 94);
+  border-radius: 4px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white;
+  position: relative;
 }
