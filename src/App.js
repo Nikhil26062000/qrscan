@@ -101,6 +101,7 @@ const App = () => {
     <div className="main_Container">
       <h1>QR Code</h1>
       <QRCodeScanner onScan={handleScan} isScanning={isScanning} />
+      <div className="model_container">
       <Modal
         isOpen={!isScanning}
         onRequestClose={handleBack}
@@ -120,6 +121,8 @@ const App = () => {
         )}
         <button onClick={handleBack}>Back</button>
       </Modal>
+      </div>
+     
     </div>
   );
 };
