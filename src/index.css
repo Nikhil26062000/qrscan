@@ -16,8 +16,9 @@ code {
 
  .main_Container {
   width: 100%;
-  height:80vh;
+  height:100vh;
   background-color: blueviolet;
+  position: relative;
 
 } 
 
@@ -29,13 +30,13 @@ code {
 }
 
 .ReactModal__Content {
-  position: relative;
-
+  position: absolute;
+bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
-  width: 100%; /* Adjust width as needed */
-  max-width: 100px; /* Adjust maximum width as needed */
-  height: 50px; /* Set height for the modal */
-  background: rgb(126, 94, 94);
+  width: 75%; /* Adjust width as needed */
+  max-width: 80%; /* Adjust maximum width as needed */
+  height: 150px; /* Set height for the modal */
+  background: rgb(126, 94, 94) !important;
   border-radius: 4px;
   outline: none;
 }
