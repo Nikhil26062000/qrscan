@@ -23,8 +23,8 @@ code {
 } 
 
 .model_container{
-  position: absolute;
-  bottom: 0;
+  position: absolute !important;
+  top: 300px !important;
 }
 
 .ReactModal__Overlay {
