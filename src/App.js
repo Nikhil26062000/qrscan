@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import QRCodeScanner from './QRCodeScanner';
 
-
 const App = () => {
   const [scannedData, setScannedData] = useState('');
   const [filterData, setFilterData] = useState([]);
+  const [isScanning, setIsScanning] = useState(true);
 
   const person = [
     { name: 'John', age: 34, id: 1001 },
@@ -22,24 +22,38 @@ const App = () => {
     setFilterData(filteredData);
   };
 
+  const stopScanning = () => {
+    setIsScanning(false);
+  };
+
+  const handleBack = () => {
+    setScannedData('');
+    setFilterData([]);
+    setIsScanning(true);
+  };
+
   return (
-    <div class="main_Container">
+    <div className="main_Container">
       <h1>QR Code Scanner</h1>
-      <QRCodeScanner onScan={handleScan} />
-      {scannedData && (
-        <div>
-          <h2>Scanned Data:</h2>
-          <p>{scannedData}</p>
-          {filterData.length > 0 ? (
-            filterData.map((ele, index) => (
-              <div key={index}>
-                <p>{ele.name}</p>
-              </div>
-            ))
-          ) : (
-            <p>No matching data found.</p>
-          )}
-        </div>
+      {isScanning ? (
+        <QRCodeScanner onScan={handleScan} stopScanning={stopScanning} />
+      ) : (
+        <>
+          <div>
+            <h2>Scanned Data:</h2>
+            <p>{scannedData}</p>
+            {filterData.length > 0 ? (
+              filterData.map((ele, index) => (
+                <div key={index}>
+                  <p>{ele.name}</p>
+                </div>
+              ))
+            ) : (
+              <p>No matching data found.</p>
+            )}
+          </div>
+          <button onClick={handleBack}>Back</button>
+        </>
       )}
     </div>
   );
