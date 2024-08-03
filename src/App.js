@@ -32,7 +32,7 @@ const App = () => {
 
   return (
     <div className="main_Container">
-      <h1>QR Code</h1>
+      <h1>Final QR</h1>
       <QRCodeScanner onScan={handleScan} isScanning={isScanning} />
       <Modal
         isOpen={!isScanning}
