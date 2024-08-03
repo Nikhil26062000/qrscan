@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import QRCodeScanner from './QRCodeScanner';
 
+
 const App = () => {
   const [scannedData, setScannedData] = useState('');
   const [filterData, setFilterData] = useState([]);
@@ -22,7 +23,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div class="main_Container">
       <h1>QR Code Scanner</h1>
       <QRCodeScanner onScan={handleScan} />
       {scannedData && (
