@@ -14,48 +14,8 @@ code {
 
 
 
-/* .qrContainer {
+.qrContainer {
   width: 500px;
   height:500px;
 
-} */
-.ReactModal__Overlay {
-  background-color: rgba(0, 0, 0, 0.75);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.ReactModal__Content {
-  position: relative;
-  top: auto;
-  left: auto;
-  right: auto;
-  bottom: auto;
-  margin: auto;
-  width: 60%; /* Reduce the width to leave some space for the camera view */
-  max-width: 400px;
-  padding: 20px;
-  background: white;
-  border-radius: 4px;
-  outline: none;
-  z-index: 10;
-}
-
-.qrContainer {
-  position: relative;
-  z-index: 1;
-}
-
-.Modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-}
-
-.Overlay {
-  background: none;
-  z-index: 5;
 }
