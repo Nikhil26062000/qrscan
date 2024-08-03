@@ -99,7 +99,7 @@ const App = () => {
 
   return (
     <div className="main_Container">
-      <h1>QR Code Functionalty</h1>
+      <h1>QR Code Functionalty new</h1>
       <QRCodeScanner onScan={handleScan} isScanning={isScanning} />
       <Modal
         isOpen={!isScanning}
