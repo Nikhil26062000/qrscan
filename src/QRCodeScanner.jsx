@@ -275,7 +275,7 @@ const QRCodeScanner = ({ onScan }) => {
         ref={webcamRef}
         videoConstraints={{ deviceId: currentDeviceId }}
         screenshotFormat="image/jpeg"
-        style={{ width: '100%', height: '100vh', objectFit: 'cover', position: 'fixed', top: 0, left: 0, zIndex: 1 }}
+        style={{ width: '50%', height: '50vh', objectFit: 'cover', position: 'fixed', top: 0, left: 5, zIndex: 1 }}
       />
       <Modal
         isOpen={isModalOpen}
@@ -283,7 +283,7 @@ const QRCodeScanner = ({ onScan }) => {
         className="Modal"
         overlayClassName="Overlay"
       >
-        <h2>Scanned Data</h2>
+        <h2>Inside webcam Data</h2>
         <p>{scannedData}</p>
         <button onClick={handleCloseModal}>Back</button>
       </Modal>
