@@ -21,7 +21,7 @@ code {
 } */
 
 .ReactModal__Overlay {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(255, 255, 255, 0.75);
   display: flex;
   align-items: flex-end; /* Align modal to bottom */
   justify-content: center; /* Center horizontally */
@@ -29,6 +29,8 @@ code {
 
 .ReactModal__Content {
   position: relative;
+
+  background-color: rgba(0, 0, 0, 0.75);
   width: 100%; /* Adjust width as needed */
   max-width: 300px; /* Adjust maximum width as needed */
   height: 250px; /* Set height for the modal */
