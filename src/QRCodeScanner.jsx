@@ -206,7 +206,6 @@
 
 // export default QRCodeScanner;
 
-
 import React, { useState, useRef, useEffect } from 'react';
 import Webcam from 'react-webcam';
 import Modal from 'react-modal';
@@ -220,10 +219,23 @@ const QRCodeScanner = ({ onScan }) => {
   const [devices, setDevices] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [scannedData, setScannedData] = useState('');
+  const codeReaderRef = useRef(new BrowserMultiFormatReader());
 
   useEffect(() => {
-    const codeReader = new BrowserMultiFormatReader();
-    console.log('ZXing code reader initialized');
+    const getDevices = async () => {
+      const devices = await navigator.mediaDevices.enumerateDevices();
+      const videoDevices = devices.filter(device => device.kind === 'videoinput');
+      setDevices(videoDevices);
+      if (videoDevices.length > 0) {
+        setCurrentDeviceId(videoDevices.find(device => device.label.includes('back')).deviceId || videoDevices[0].deviceId);
+      }
+    };
+
+    getDevices();
+  }, []);
+
+  useEffect(() => {
+    const codeReader = codeReaderRef.current;
 
     const scan = () => {
       if (webcamRef.current && currentDeviceId) {
@@ -241,25 +253,14 @@ const QRCodeScanner = ({ onScan }) => {
       }
     };
 
-    scan();
+    if (!isModalOpen) {
+      scan();
+    }
 
     return () => {
       codeReader.reset();
     };
-  }, [currentDeviceId, onScan]);
-
-  useEffect(() => {
-    const getDevices = async () => {
-      const devices = await navigator.mediaDevices.enumerateDevices();
-      const videoDevices = devices.filter(device => device.kind === 'videoinput');
-      setDevices(videoDevices);
-      if (videoDevices.length > 0) {
-        setCurrentDeviceId(videoDevices.find(device => device.label.includes('back')).deviceId || videoDevices[0].deviceId);
-      }
-    };
-
-    getDevices();
-  }, []);
+  }, [currentDeviceId, isModalOpen, onScan]);
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
