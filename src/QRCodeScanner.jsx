@@ -207,8 +207,6 @@
 // export default QRCodeScanner;
 
 
-
-
 import React, { useState, useRef, useEffect } from 'react';
 import Webcam from 'react-webcam';
 import Modal from 'react-modal';
@@ -275,7 +273,7 @@ const QRCodeScanner = ({ onScan }) => {
         ref={webcamRef}
         videoConstraints={{ deviceId: currentDeviceId }}
         screenshotFormat="image/jpeg"
-        style={{ width: '100%' }}
+        style={{ width: '100%', height: '100vh', objectFit: 'cover', position: 'fixed', top: 0, left: 0, zIndex: 1 }}
       />
       <Modal
         isOpen={isModalOpen}
@@ -292,7 +290,6 @@ const QRCodeScanner = ({ onScan }) => {
 };
 
 export default QRCodeScanner;
-
 
 
 

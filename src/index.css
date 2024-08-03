@@ -14,11 +14,14 @@ code {
 
 
 
-.qrContainer {
+/* .qrContainer {
   width: 500px;
   height:500px;
 
-}.ReactModal__Overlay {
+} */
+
+
+.ReactModal__Overlay {
   background-color: rgba(0, 0, 0, 0.75);
   display: flex;
   align-items: center;
@@ -38,6 +41,7 @@ code {
   background: white;
   border-radius: 4px;
   outline: none;
+  z-index: 10;
 }
 
 .qrContainer {
