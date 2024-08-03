@@ -74,7 +74,6 @@
 // export default QRCodeScanner;
 
 
-
 import React, { useRef, useEffect, useState } from "react";
 import Webcam from "react-webcam";
 import { BrowserMultiFormatReader, NotFoundException } from "@zxing/library";
@@ -122,19 +121,33 @@ const QRCodeScanner = ({ onScan, isScanning }) => {
       );
 
       if (videoDevices.length > 0) {
-        // Prioritize the back camera
+        // Find the back camera (if available)
         const backCamera = videoDevices.find((device) =>
           device.label.toLowerCase().includes("back")
         );
 
+        // Set the current device ID (back camera if available, else first camera)
         setCurrentDeviceId(
           backCamera ? backCamera.deviceId : videoDevices[0].deviceId
         );
       }
     };
 
-    getDevices();
+    // Retrieve stored camera ID from localStorage (or set it initially)
+    const storedDeviceId = localStorage.getItem("preferredCameraId");
+    if (storedDeviceId) {
+      setCurrentDeviceId(storedDeviceId);
+    } else {
+      getDevices();
+    }
   }, []);
+
+  // Store the selected camera ID in localStorage
+  useEffect(() => {
+    if (currentDeviceId) {
+      localStorage.setItem("preferredCameraId", currentDeviceId);
+    }
+  }, [currentDeviceId]);
 
   return (
     <div className="qrContainer">
@@ -150,3 +163,4 @@ const QRCodeScanner = ({ onScan, isScanning }) => {
 };
 
 export default QRCodeScanner;
+

@@ -61,8 +61,6 @@
 
 // export default App;
 
-
-
 import React, { useState } from 'react';
 import QRCodeScanner from './QRCodeScanner';
 
@@ -125,5 +123,3 @@ const App = () => {
 };
 
 export default App;
-
-
