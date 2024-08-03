@@ -206,6 +206,9 @@
 
 // export default QRCodeScanner;
 
+
+
+
 import React, { useState, useRef, useEffect } from 'react';
 import Webcam from 'react-webcam';
 import Modal from 'react-modal';
@@ -219,23 +222,10 @@ const QRCodeScanner = ({ onScan }) => {
   const [devices, setDevices] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [scannedData, setScannedData] = useState('');
-  const codeReaderRef = useRef(new BrowserMultiFormatReader());
 
   useEffect(() => {
-    const getDevices = async () => {
-      const devices = await navigator.mediaDevices.enumerateDevices();
-      const videoDevices = devices.filter(device => device.kind === 'videoinput');
-      setDevices(videoDevices);
-      if (videoDevices.length > 0) {
-        setCurrentDeviceId(videoDevices.find(device => device.label.includes('back')).deviceId || videoDevices[0].deviceId);
-      }
-    };
-
-    getDevices();
-  }, []);
-
-  useEffect(() => {
-    const codeReader = codeReaderRef.current;
+    const codeReader = new BrowserMultiFormatReader();
+    console.log('ZXing code reader initialized');
 
     const scan = () => {
       if (webcamRef.current && currentDeviceId) {
@@ -253,14 +243,25 @@ const QRCodeScanner = ({ onScan }) => {
       }
     };
 
-    if (!isModalOpen) {
-      scan();
-    }
+    scan();
 
     return () => {
       codeReader.reset();
     };
-  }, [currentDeviceId, isModalOpen, onScan]);
+  }, [currentDeviceId, onScan]);
+
+  useEffect(() => {
+    const getDevices = async () => {
+      const devices = await navigator.mediaDevices.enumerateDevices();
+      const videoDevices = devices.filter(device => device.kind === 'videoinput');
+      setDevices(videoDevices);
+      if (videoDevices.length > 0) {
+        setCurrentDeviceId(videoDevices.find(device => device.label.includes('back')).deviceId || videoDevices[0].deviceId);
+      }
+    };
+
+    getDevices();
+  }, []);
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
@@ -269,13 +270,12 @@ const QRCodeScanner = ({ onScan }) => {
 
   return (
     <div className="qrContainer">
-    
       <Webcam
         audio={false}
         ref={webcamRef}
         videoConstraints={{ deviceId: currentDeviceId }}
         screenshotFormat="image/jpeg"
-        style={{ width: '50%', height: '50vh', objectFit: 'cover', position: 'fixed', top: 0, left: 5, zIndex: 1 }}
+        style={{ width: '100%', height: '100vh', objectFit: 'cover', position: 'fixed', top: 0, left: 0, zIndex: 1 }}
       />
       <Modal
         isOpen={isModalOpen}
@@ -283,7 +283,7 @@ const QRCodeScanner = ({ onScan }) => {
         className="Modal"
         overlayClassName="Overlay"
       >
-        <h2>Inside webcam Data</h2>
+        <h2>Scanned Data</h2>
         <p>{scannedData}</p>
         <button onClick={handleCloseModal}>Back</button>
       </Modal>
@@ -292,6 +292,7 @@ const QRCodeScanner = ({ onScan }) => {
 };
 
 export default QRCodeScanner;
+
 
 
 

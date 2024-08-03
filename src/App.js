@@ -127,7 +127,6 @@
 // export default App;
 
 
-
 import React, { useState } from 'react';
 import QRCodeScanner from './QRCodeScanner';
 
@@ -153,14 +152,25 @@ const App = () => {
 
   return (
     <div className="main_Container">
-      <h1>QR TESTING</h1>
+      <h1>QR Code Scanner</h1>
       <QRCodeScanner onScan={handleScan} />
-      
+      {scannedData && (
+        <div>
+          <h2>Scanned Data:</h2>
+          <p>{scannedData}</p>
+          {filterData.length > 0 ? (
+            filterData.map((ele, index) => (
+              <div key={index}>
+                <p>{ele.name}</p>
+              </div>
+            ))
+          ) : (
+            <p>No matching data found.</p>
+          )}
+        </div>
+      )}
     </div>
   );
 };
 
 export default App;
-
-
-

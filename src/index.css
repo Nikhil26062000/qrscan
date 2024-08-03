@@ -19,7 +19,6 @@ code {
   height:500px;
 
 } */
-
 .ReactModal__Overlay {
   background-color: rgba(0, 0, 0, 0.75);
   display: flex;
@@ -52,7 +51,6 @@ code {
   position: absolute;
   top: 50%;
   left: 50%;
-  background-color: aquamarine;
   transform: translate(-50%, -50%);
   z-index: 10;
 }
