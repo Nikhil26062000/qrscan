@@ -34,8 +34,8 @@ code {
 }
 
 .videoFullHeight {
-  width: 90%;
-  border-radius: 20px;
+  width: 100%;
+ 
   max-width: 100%;
 }
 
