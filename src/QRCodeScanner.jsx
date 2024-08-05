@@ -32,7 +32,6 @@
 // export default QRCodeScanner;
 
 
-
 import React, { useRef, useEffect } from "react";
 import QrScanner from "qr-scanner"; // Import the qr-scanner library
 import "qr-scanner/qr-scanner-worker.min"; // Import the worker script

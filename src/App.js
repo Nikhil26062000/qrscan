@@ -54,7 +54,6 @@
 
 
 
-
 import React, { useState } from 'react';
 import QRCodeScanner from './QRCodeScanner'; // Import the updated component
 import Top_Header from './Top_Header';
