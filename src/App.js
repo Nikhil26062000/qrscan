@@ -91,7 +91,7 @@ const App = () => {
       <div className="main_Container">
         
         {
-          scannedData && ScannedData ? <QR_Static/> : <QRCodeScanner onScan={handleScan} isScanning={isScanning} />
+          scannedData && scannedData ? <QR_Static/> : <QRCodeScanner onScan={handleScan} isScanning={isScanning} />
         }
         
 
