@@ -36,7 +36,7 @@ code {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 300px; /* Adjust height if needed */
+  height: 130px; /* Adjust height if needed */
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
   display: flex;
   align-items: flex-end; /* Align popup to bottom */
@@ -49,14 +49,14 @@ code {
   width: 272px;
   height: 75px;
   background: #125B57;
-  border-radius: 12px 0px 0px 0px;
-  border-top: 2px solid; /* Updated for border-top */
+  border-radius: 12px;
+  border: 2px solid; /* Updated for border-top */
   padding: 20px;
   box-sizing: border-box;
   color: white;
   display: flex;
   align-items: center; /* Center content vertically */
-  justify-content: center; /* Center content horizontally */
+  justify-content: space-evenly; /* Center content horizontally */
   gap: 0px;
   position: absolute;
   top: 0;
