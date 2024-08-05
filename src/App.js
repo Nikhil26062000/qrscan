@@ -54,7 +54,7 @@
 
 
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import QRCodeScanner from './QRCodeScanner'; // Import the updated component
 import Top_Header from './Top_Header';
 import QR_Static from './QR_Static';
@@ -64,15 +64,21 @@ const App = () => {
   const [filterData, setFilterData] = useState([]);
   const [isScanning, setIsScanning] = useState(true);
   const [showPopup, setShowPopup] = useState(false);
+  const [data,setData] = useState([]);
 
-  const person = [
-    { name: 'John', age: 34, id: 1001 },
-    // ... other person data ...
-  ];
+
+
+
+  useEffect(() => {
+    fetch('/Data.json')
+      .then(response => response.json())
+      .then(data => setData(data))
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
 
   const handleScan = (data) => {
     setScannedData(data);
-    const filteredData = person.filter((person) => person.id === parseInt(data));
+    const filteredData = data.filter((ele) => ele.id === parseInt(data));
     setFilterData(filteredData);
     setIsScanning(false); // Stop scanning when QR code is detected
     setShowPopup(true); // Show popup when QR code is scanned
@@ -99,7 +105,7 @@ const App = () => {
         {showPopup && (
           <div className="popupOverlay" onClick={handleBack}>
             <div className="popupContent" onClick={(e) => e.stopPropagation()}>
-              <p>{scannedData}</p>
+              <p>{filterData}</p>
               <button onClick={handleBack}>Back</button>
             </div>
           </div>
