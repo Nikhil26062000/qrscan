@@ -105,7 +105,7 @@ const App = () => {
         {showPopup && (
           <div className="popupOverlay" onClick={handleBack}>
             <div className="popupContent" onClick={(e) => e.stopPropagation()}>
-              <p>{filterData}</p>
+              <p>{filterData.name}</p>
               <button onClick={handleBack}>Back</button>
             </div>
           </div>
