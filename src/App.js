@@ -64,7 +64,7 @@ const App = () => {
   const [filterData, setFilterData] = useState([]);
   const [isScanning, setIsScanning] = useState(true);
   const [showPopup, setShowPopup] = useState(false);
-  const [data,setData] = useState([]);
+  const [jsonData,setJsonData] = useState([]);
 
 
 
@@ -72,13 +72,13 @@ const App = () => {
   useEffect(() => {
     fetch('/Data.json')
       .then(response => response.json())
-      .then(data => setData(data))
+      .then(data => setJsonData(data))
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
   const handleScan = (data) => {
     setScannedData(data);
-    const filteredData = data.filter((ele) => ele.qr_id === parseInt(data));
+    const filteredData = jsonData.filter((ele) => ele.qr_id === parseInt(data));
     setFilterData(filteredData);
     setIsScanning(false); // Stop scanning when QR code is detected
     setShowPopup(true); // Show popup when QR code is scanned
