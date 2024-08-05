@@ -30,7 +30,7 @@ const App = () => {
 
   return (
     <>
-    <Top_Header/>
+    <Top_Header title="Home Page"/>
     <div className="main_Container">
       
       <QRCodeScanner onScan={handleScan} isScanning={isScanning} />
