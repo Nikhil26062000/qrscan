@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Main container styling */
 .main_Container {
   width: 100%;
@@ -51,7 +55,7 @@ code {
   background: #125B57;
   border-radius: 12px;
   border: 2px solid; /* Updated for border-top */
-  padding: 20px;
+  padding: 12px;
   box-sizing: border-box;
   color: white;
   display: flex;
