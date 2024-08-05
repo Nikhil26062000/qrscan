@@ -5,7 +5,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 const Top_Header = ({title}) => {
   return (
     <div
-      className="h-[106px] bg-[#125B57] relative"
+      className="h-[106px] bg-[#125B57] mb-10 relative"
       style={{
         borderTopLeftRadius: '0px',
         borderTopRightRadius: '0px',
