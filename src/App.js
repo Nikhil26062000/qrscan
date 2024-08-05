@@ -88,6 +88,7 @@ const App = () => {
   return (
     <>
       <Top_Header title="Home Page"/>
+      <h1>hie</h1>
       <div className="main_Container">
         
         {
