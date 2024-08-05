@@ -57,6 +57,7 @@
 import React, { useState } from 'react';
 import QRCodeScanner from './QRCodeScanner'; // Import the updated component
 import Top_Header from './Top_Header';
+import QR_Static from './QR_Static';
 
 const App = () => {
   const [scannedData, setScannedData] = useState('');
@@ -89,7 +90,10 @@ const App = () => {
       <Top_Header title="Home Page"/>
       <div className="main_Container">
         
-        <QRCodeScanner onScan={handleScan} isScanning={isScanning} />
+        {
+          scannedData && ScannedData ? <QR_Static/> : <QRCodeScanner onScan={handleScan} isScanning={isScanning} />
+        }
+        
 
         {showPopup && (
           <div className="popupOverlay" onClick={handleBack}>
