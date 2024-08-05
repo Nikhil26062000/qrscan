@@ -29,7 +29,7 @@ const App = () => {
 
   return (
     <div className="main_Container">
-      <h1>Final QR styling</h1>
+      <h1> styling</h1>
       <QRCodeScanner onScan={handleScan} isScanning={isScanning} />
 
       {showPopup && (
