@@ -35,17 +35,9 @@ const App = () => {
       {showPopup && (
         <div className="popupOverlay" onClick={handleBack}>
           <div className="popupContent" onClick={(e) => e.stopPropagation()}>
-            <h2>Scanned Data:</h2>
+           
             <p>{scannedData}</p>
-            {filterData.length > 0 ? (
-              filterData.map((ele, index) => (
-                <div key={index}>
-                  <p>{ele.name}</p>
-                </div>
-              ))
-            ) : (
-              <p>No Data found.</p>
-            )}
+           
             <button onClick={handleBack}>Back</button>
           </div>
         </div>
