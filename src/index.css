@@ -58,5 +58,6 @@ code {
   align-items: center; /* Center content vertically */
   justify-content: center; /* Center content horizontally */
   gap: 0px;
-  position: relative;
+  position: absolute;
+  top: 0;
 }
