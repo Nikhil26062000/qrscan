@@ -78,7 +78,7 @@ const App = () => {
 
   const handleScan = (data) => {
     setScannedData(data);
-    const filteredData = data.filter((ele) => ele.id === parseInt(data));
+    const filteredData = data.filter((ele) => ele.qr_id === parseInt(data));
     setFilterData(filteredData);
     setIsScanning(false); // Stop scanning when QR code is detected
     setShowPopup(true); // Show popup when QR code is scanned
