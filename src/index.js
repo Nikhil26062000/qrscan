@@ -13,6 +13,7 @@ import Password from './Password';
 import Language from './Language';
 import Turn_On from './Turn_On';
 import Address from './Address';
+import Login from './Login';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -27,7 +28,8 @@ root.render(
   {/* <Password/> */}
   {/* <Language/> */}
   {/* <Turn_On/> */}
-  <Address/>
+  {/* <Address/> */}
+  <Login/>
   </React.StrictMode>
 );
 
