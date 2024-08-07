@@ -8,7 +8,7 @@ import CameraEnhanceIcon from '@mui/icons-material/CameraEnhance';
 const Discussion = () => {
     const [focusedInput, setFocusedInput] = useState(null);
   return (
-    <div className="min-w-[480px] mx-auto">
+    <div className="">
          <div
       className="w-[full] h-[106px] bg-[#125B57] flex justify-center items-center relative"
       style={{
