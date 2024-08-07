@@ -9,6 +9,7 @@ import Dashboard from './Dashboard';
 import Default_Address from './Default_Address';
 import Account from './Account';
 import Turn_Off from './Turn_Off';
+import Password from './Password';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,7 +20,8 @@ root.render(
   {/* <Dashboard/> */}
   {/* <Default_Address/> */}
   {/* <Account/> */}
-  <Turn_Off/>
+  {/* <Turn_Off/> */}
+  <Password/>
   </React.StrictMode>
 );
 
