@@ -13,7 +13,7 @@ import Dashboard from './Dashboard.js';
 import CitizenScientistKit from './CitizenScientistKit.js';
 import Discussion from './Discussion.jsx';
 import Signup from './Signup.js';
-
+import Password from './Password.js'
 
 
 function MainApp() {
@@ -21,7 +21,7 @@ function MainApp() {
     <Router>
       <Routes>
         
-        <Route path="/" element={<Signup />} />
+        <Route path="/qrscan" element={<Signup />} />
         <Route path="/qrcode" element={<App />} />
 
         <Route path="/login" element={<Login />} />
