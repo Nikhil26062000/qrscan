@@ -6,7 +6,7 @@ import UserList from "./components/UserList";
 
 const CitizenScientistKit = () => {
   return (
-    <div className="w-[100%] mx-auto">
+    <div className="w-screen mx-auto">
       <Top_Header title="Citizen scientist kit" />
       <section className="w-[324px] h-[326px] mx-auto flex flex-col gap-[31px] mt-[14px] ">
         <section className="w-full flex justify-center">
