@@ -6,6 +6,7 @@ import Test from './Test'
 import reportWebVitals from './reportWebVitals';
 import CitizenScientistKit from './CitizenScientistKit';
 import Dashboard from './Dashboard';
+import Default_Address from './Default_Address';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,7 +14,8 @@ root.render(
     {/* <App /> */}
     {/* <Test/> */}
   {/* <CitizenScientistKit/> */}
-  <Dashboard/>
+  {/* <Dashboard/> */}
+  <Default_Address/>
   </React.StrictMode>
 );
 
