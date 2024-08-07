@@ -10,6 +10,7 @@ import Default_Address from './Default_Address';
 import Account from './Account';
 import Turn_Off from './Turn_Off';
 import Password from './Password';
+import Language from './Language';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,7 +22,8 @@ root.render(
   {/* <Default_Address/> */}
   {/* <Account/> */}
   {/* <Turn_Off/> */}
-  <Password/>
+  {/* <Password/> */}
+  <Language/>
   </React.StrictMode>
 );
 
