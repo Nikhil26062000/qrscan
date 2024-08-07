@@ -2,18 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import Test from './Test'
+import Test from './Discussion'
 import reportWebVitals from './reportWebVitals';
-import CitizenScientistKit from './CitizenScientistKit';
-import Dashboard from './Dashboard';
-import Default_Address from './Default_Address';
-import Account from './Account';
-import Turn_Off from './Turn_Off';
-import Password from './Password';
-import Language from './Language';
-import Turn_On from './Turn_On';
-import Address from './Address';
-import Login from './Login';
+
+import MainApp from './MainApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -29,7 +21,7 @@ root.render(
   {/* <Language/> */}
   {/* <Turn_On/> */}
   {/* <Address/> */}
-  <Login/>
+  <MainApp/>
   </React.StrictMode>
 );
 
