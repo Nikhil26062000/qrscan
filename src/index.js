@@ -8,6 +8,7 @@ import CitizenScientistKit from './CitizenScientistKit';
 import Dashboard from './Dashboard';
 import Default_Address from './Default_Address';
 import Account from './Account';
+import Turn_Off from './Turn_Off';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,7 +18,8 @@ root.render(
   {/* <CitizenScientistKit/> */}
   {/* <Dashboard/> */}
   {/* <Default_Address/> */}
-  <Account/>
+  {/* <Account/> */}
+  <Turn_Off/>
   </React.StrictMode>
 );
 
