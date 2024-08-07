@@ -1,7 +1,7 @@
 import React from "react";
-import Footer from "../../components/Footer";
-import Address_Container from "./Address_Container";
-import Top_Header from "../../components/Common_Components/Top_Header";
+import Top_Header from "./components/Top_Header";
+import Address_Container from "./components/Address_Container";
+
 
 
 const Address = () => {
@@ -10,7 +10,7 @@ const Address = () => {
     <Top_Header title="My address" />
       <Address_Container />
       <div className="mt-10">
-      <Footer/>
+    
       </div>
 
     </div>
