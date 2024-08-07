@@ -7,7 +7,7 @@ const Password = () => {
   const [focusedInput, setFocusedInput] = useState(null);
 
   return (
-    <div className="w-[480px] mx-auto ">
+    <div className="w-screen mx-auto ">
       <Top_Header title="Password" />
       <section className="w-[327px] max-h-[178px] mt-[28px] mx-auto flex flex-col gap-[18px]">
         <p className="font-[600] text-[24px] leading-[26.4px] text-[#125B57] ">
