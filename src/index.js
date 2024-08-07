@@ -6,6 +6,7 @@ import Test from './Discussion'
 import reportWebVitals from './reportWebVitals';
 
 import MainApp from './MainApp';
+import Signup from './Signup';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,8 +21,8 @@ root.render(
   {/* <Password/> */}
   {/* <Language/> */}
   {/* <Turn_On/> */}
-  {/* <Address/> */}
-  <MainApp/>
+  <Signup/>
+
   </React.StrictMode>
 );
 
