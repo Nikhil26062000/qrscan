@@ -5,13 +5,15 @@ import App from './App';
 import Test from './Test'
 import reportWebVitals from './reportWebVitals';
 import CitizenScientistKit from './CitizenScientistKit';
+import Dashboard from './Dashboard';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <App /> */}
     {/* <Test/> */}
-  <CitizenScientistKit/>
+  {/* <CitizenScientistKit/> */}
+  <Dashboard/>
   </React.StrictMode>
 );
 
