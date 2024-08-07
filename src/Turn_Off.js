@@ -7,7 +7,7 @@ import CTA from "./components/CTA";
 
 const Turn_Off = () => {
   return (
-    <div className=" w-[360px]   mx-auto">
+    <div className=" w-[100%]   mx-auto">
       <Top_Header title="Notification" />
       <section className=" w-full mt-[134px] flex justify-center">
         <CTA btn_name="Turn off Notification"/>
