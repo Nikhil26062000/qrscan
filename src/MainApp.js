@@ -13,7 +13,7 @@ import Dashboard from './Dashboard.js';
 import CitizenScientistKit from './CitizenScientistKit.js';
 import Discussion from './Discussion.jsx';
 import Signup from './Signup.js';
-import Password from './Password.js'
+// import Password from './Password.js'
 
 
 function MainApp() {
