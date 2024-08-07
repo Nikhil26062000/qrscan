@@ -8,7 +8,7 @@ import CameraEnhanceIcon from '@mui/icons-material/CameraEnhance';
 const Discussion = () => {
     const [focusedInput, setFocusedInput] = useState(null);
   return (
-    <div className="">
+    <div className="w-[100%]">
          <div
       className="w-[full] h-[106px] bg-[#125B57] flex justify-center items-center relative"
       style={{
@@ -23,7 +23,7 @@ const Discussion = () => {
         <CloseIcon className="text-[#FFFFFF] cursor-pointer" />
       </div>
       <div className="">
-        <p className="font-inter font-[500] text-[16px] leading-[19.36px] text-[#FFFFFF]">Citizen scientis kit</p>
+        <p className="font-inter font-[500] text-[16px] leading-[19.36px] text-[#FFFFFF]">Citizen scientist Test</p>
       </div>
     </div>
         <section className="w-[330.2px] max-h-[586px] mt-[19px] flex flex-col gap-[205px] mx-auto">
@@ -77,7 +77,7 @@ const Discussion = () => {
 
 
             {/* Post button */}
-            <button className="font-inter w-[290px] h-[56px] bg-[#125B57] text-white font-[500] text-[16px] leading-[19.36px] text-center rounded-[40px]"
+            <button className="font-inter w-[290px] h-[56px] bg-[#125B57] text-white font-[500] text-[16px] leading-[19.36px] text-center rounded-[40px] mx-auto"
     style={{ boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}
     >
       Post
