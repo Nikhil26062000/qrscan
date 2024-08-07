@@ -34,6 +34,7 @@ const App = () => {
 
   return (
     <>
+    <div className="w-screen ">
       <Top_Header title="Home Page"/>
       <div className="main_Container">
         {scannedData && scannedData ? <QR_Static/> : <QRCodeScanner onScan={handleScan} isScanning={isScanning} />}
@@ -55,6 +56,7 @@ const App = () => {
             </div>
           </div>
         )}
+      </div>
       </div>
     </>
   );
