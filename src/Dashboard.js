@@ -14,7 +14,7 @@ import LastList from './components/LastList';
 
 const Dashboard = () => {
   return (
-    <div className='w-[100%] mx-auto'>
+    <div className='w-[100%]'>
         <Top_Header title="Home Page"/>
         <section className='w-[314px] h-[396px] mt-[28px] mx-auto rounded-[10px]'>
         <MenuList title='Address' isTopBorder={true}  Icon={LocationOnIcon}/>

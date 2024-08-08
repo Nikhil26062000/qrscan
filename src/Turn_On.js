@@ -6,8 +6,8 @@ import CTA from "./components/CTA";
 
 const Turn_On = () => {
   return (
-    <div className=" w-[100%]   mx-auto">
-      <Top_Header title="Notification" />
+    <div className=" w-[100%] ">
+      <Top_Header title="Notification Yo" />
       <section className=" w-full mt-[134px] flex justify-center">
         <CTA btn_name="Turn On Notification"/>
       </section>
