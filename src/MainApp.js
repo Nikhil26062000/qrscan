@@ -14,6 +14,7 @@ import Dashboard from './Dashboard';
 import CitizenScientistKit from './CitizenScientistKit';
 import Discussion from './Discussion';
 import App from './App';
+import HomePage from './HomePage';
 
 
 
@@ -23,7 +24,8 @@ function MainApp() {
     <Router>
       <Routes>
        
-        <Route path="/qrscan/" element={<Signup />} />
+        <Route path="/qrscan/" element={<HomePage />} />
+        <Route path="/qrscan/signup" element={<Signup />} />
         <Route path="/qrscan/login" element={<Login />} />
         <Route path="/qrscan/qrcode" element={<App />} />
         <Route path="/qrscan/address" element={<Address />} />
