@@ -21,7 +21,8 @@ root.render(
   {/* <Password/> */}
   {/* <Language/> */}
   {/* <Turn_On/> */}
-  <Signup/>
+  {/* <Signup/> */}
+  <MainApp/>
 
   </React.StrictMode>
 );
