@@ -65,7 +65,7 @@ const CameraCaptureWithHeader = ({ title }) => {
         </div>
 
         {/* Capture and Camera Switch Buttons */}
-        <div className="flex space-x-6 mb-8 pb-[30px] z-[1000]">
+        <div className="flex space-x-6 mb-8 pb-[50px] z-[1000]">
           <button className="w-14 h-14 text-white rounded-full shadow-lg hover:bg-green-600 flex items-center justify-center">
             <PhotoSizeSelectActualIcon />
           </button>
