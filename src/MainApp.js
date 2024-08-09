@@ -15,6 +15,7 @@ import CitizenScientistKit from './CitizenScientistKit';
 import Discussion from './Discussion';
 import App from './App';
 import HomePage from './HomePage';
+import MediaCapture from './MediaCapture'
 
 
 
@@ -38,6 +39,7 @@ function MainApp() {
         <Route path="/qrscan/dashboard" element={<Dashboard/>} />
         <Route path="/qrscan/kit" element={<CitizenScientistKit/>} />
         <Route path="/qrscan/discussion" element={<Discussion/>} />
+        <Route path="/qrscan/webcam" element={<MediaCapture/>} />
         
       </Routes>
     </Router>

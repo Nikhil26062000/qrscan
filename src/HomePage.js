@@ -18,6 +18,7 @@ const HomePage = () => {
      <RedirectButton  path="/qrscan/kit">kit</RedirectButton>
      <RedirectButton  path="/qrscan/signup">signup</RedirectButton>
      <RedirectButton  path="/qrscan/discussion">discussion</RedirectButton>
+     <RedirectButton  path="/qrscan/webcam">MediaCapture</RedirectButton>
     </div>
   )
 }
