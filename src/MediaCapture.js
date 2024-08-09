@@ -20,8 +20,9 @@ const CameraCaptureWithHeader = ({ title }) => {
 
   return (
     <div className="flex flex-col h-screen">
+      {/* Header */}
       <div
-        className="h-[106px]  bg-[#125B57] z-[90] relative flex justify-center items-center"
+        className="h-[106px] bg-[#125B57] z-[90] relative flex justify-center items-center"
         style={{
           borderTopLeftRadius: '0px',
           borderTopRightRadius: '0px',
@@ -34,11 +35,13 @@ const CameraCaptureWithHeader = ({ title }) => {
           <ClearIcon className="text-[#FFFFFF] cursor-pointer" />
         </div>
         <div className="absolute">
-          <p className="font-inter font-[500] text-[16px] leading-[19.36px] text-[#FFFFFF]">{title}</p>
+          <p className="font-inter font-[500] text-[16px] leading-[19.36px] text-[#FFFFFF]">Camera</p>
         </div>
       </div>
 
-      <div className="relative  mt-[-40px] flex items-center justify-center flex-1">
+      {/* Camera and Controls */}
+      <div className="relative mt-[-40px] flex flex-col items-center justify-end flex-1">
+        {/* Webcam */}
         <Webcam
           audio={false}
           ref={webcamRef}
@@ -46,22 +49,39 @@ const CameraCaptureWithHeader = ({ title }) => {
           videoConstraints={{ facingMode }}
           className="absolute top-0 left-0 w-full h-full object-cover"
         />
-        <div className="absolute bottom-16 flex justify-center w-full">
+
+        {/* Dummy Options (Photo, Video, Audio) */}
+        <div className="flex space-x-6 mb-4 z-[1000] ">
+          <button className="text-white font-semibold"> Video</button>
+          <button className="text-white font-semibold">Photo</button>
+          <button className="text-white font-semibold">Audio</button>
+        </div>
+
+        {/* Capture and Camera Switch Buttons */}
+        <div className="flex space-x-6 mb-8 z-[1000]">
+          <button
+            onClick={toggleCamera}
+            className="w-14 h-14 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 flex items-center justify-center"
+          >
+            🖼️
+          </button>
           <button
             onClick={capture}
             className="w-16 h-16 bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-600 flex items-center justify-center"
           >
             <span className="sr-only">Capture</span>
           </button>
+          <button
+            onClick={toggleCamera}
+            className="w-14 h-14 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 flex items-center justify-center"
+          >
+            🔄
+          </button>
         </div>
-        <button
-          onClick={toggleCamera}
-          className="absolute top-8 right-8 w-10 h-10 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 flex items-center justify-center"
-        >
-          🔄
-        </button>
+
+        {/* Popup Notification */}
         {showPopup && (
-          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-black text-white px-4 py-2 rounded-lg shadow-lg">
+          <div className="absolute top-14 left-1/2 transform -translate-x-1/2 bg-black text-white px-4 py-2 rounded-lg shadow-lg">
             Picture Saved!
           </div>
         )}
