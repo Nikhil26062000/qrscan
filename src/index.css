@@ -71,3 +71,65 @@ code {
   position: absolute;
   top: 0;
 }
+
+
+
+/* ------------------------------------------------------------------------------------------------ */
+
+
+/* MediaCapture.css */
+
+.media-capture-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.media-video {
+  width: 640px;
+  height: 480px;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  background-color: #000;
+}
+
+.media-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.media-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.media-button:hover {
+  opacity: 0.9;
+}
+
+.media-image {
+  width: 640px;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 1rem;
+  border: 2px solid #ccc;
+}
+
+.media-video-display {
+  width: 640px;
+  height: 480px;
+  border-radius: 8px;
+  margin-top: 1rem;
+  border: 2px solid #ccc;
+}
