@@ -27,9 +27,7 @@ const MediaCapture = ({ title }) => {
     setFacingMode(prevMode => (prevMode === 'user' ? 'environment' : 'user'));
   };
 
-  const handleVideo = () => {
-    navigate("/qrscan/video")
-  }
+
 
   return (
     <div className="flex flex-col h-screen">
@@ -65,7 +63,7 @@ const MediaCapture = ({ title }) => {
 
         {/* Dummy Options (Photo, Video, Audio) */}
         <div className="flex space-x-6 mb-4 z-[1000] ">
-          <button className="text-white font-inter font-[500] text-[16px] leading-[19.36px]" onClick={handleVideo}>VIDEO</button>
+          <button className="text-white font-inter font-[500] text-[16px] leading-[19.36px]">VIDEO</button>
           <button className="text-white font-inter font-[500] text-[16px] leading-[19.36px]">PHOTO</button>
           <button className="text-white font-inter font-[500] text-[16px] leading-[19.36px]">AUDIO</button>
         </div>
