@@ -16,6 +16,7 @@ import Discussion from './Discussion';
 import App from './App';
 import HomePage from './HomePage';
 import MediaCapture from './MediaCapture'
+// import VideoRecording from './VideoRecording';
 
 
 
@@ -40,6 +41,7 @@ function MainApp() {
         <Route path="/qrscan/kit" element={<CitizenScientistKit/>} />
         <Route path="/qrscan/discussion" element={<Discussion/>} />
         <Route path="/qrscan/webcam" element={<MediaCapture/>} />
+       
         
       </Routes>
     </Router>
