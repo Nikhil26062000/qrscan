@@ -4,7 +4,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 import CameraswitchIcon from '@mui/icons-material/Cameraswitch';
 import PhotoSizeSelectActualIcon from '@mui/icons-material/PhotoSizeSelectActual';
 
-const CameraCaptureWithHeader = ({ title }) => {
+const MediaCapture = ({ title }) => {
   const webcamRef = useRef(null);
   const [facingMode, setFacingMode] = useState('user');
   const [popupMessage, setPopupMessage] = useState('');
@@ -42,7 +42,7 @@ const CameraCaptureWithHeader = ({ title }) => {
           <ClearIcon className="text-[#FFFFFF] cursor-pointer" />
         </div>
         <div className="absolute">
-          <p className="font-inter font-[500] text-[16px] leading-[19.36px] text-[#FFFFFF]">Camera</p>
+          <p className="font-inter font-[500] text-[16px] leading-[19.36px] text-[#FFFFFF]">Camera Feature</p>
         </div>
       </div>
 
@@ -58,16 +58,16 @@ const CameraCaptureWithHeader = ({ title }) => {
         />
 
         {/* Dummy Options (Photo, Video, Audio) */}
-        <div className="flex space-x-6 mb-4 z-[1000]">
-          <button className="text-white font-semibold">Video</button>
-          <button className="text-white font-semibold">Photo</button>
-          <button className="text-white font-semibold">Audio</button>
+        <div className="flex space-x-6 mb-4 z-[1000] ">
+          <button className="text-white font-inter font-[500] text-[16px] leading-[19.36px]">VIDEO</button>
+          <button className="text-white font-inter font-[500] text-[16px] leading-[19.36px]">PHOTO</button>
+          <button className="text-white font-inter font-[500] text-[16px] leading-[19.36px]">AUDIO</button>
         </div>
 
         {/* Capture and Camera Switch Buttons */}
         <div className="flex space-x-6 mb-8 pb-[50px] z-[1000]">
           <button className="w-14 h-14 text-white rounded-full shadow-lg hover:bg-green-600 flex items-center justify-center">
-            <PhotoSizeSelectActualIcon />
+            <PhotoSizeSelectActualIcon className='w-[32px] h-[20px]' />
           </button>
           <button
             onClick={capture}
@@ -78,7 +78,7 @@ const CameraCaptureWithHeader = ({ title }) => {
           <button
             onClick={toggleCamera}
             className="w-14 h-14 text-white rounded-full shadow-lg flex items-center justify-center">
-            <CameraswitchIcon />
+            <CameraswitchIcon  className='w-[32px] h-[32px]'/>
           </button>
         </div>
 
@@ -93,4 +93,4 @@ const CameraCaptureWithHeader = ({ title }) => {
   );
 };
 
-export default CameraCaptureWithHeader;
+export default MediaCapture;
