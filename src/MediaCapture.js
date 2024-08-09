@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
 import Webcam from 'react-webcam';
 import ClearIcon from '@mui/icons-material/Clear'; // Ensure you import the icon
+import CameraswitchIcon from '@mui/icons-material/Cameraswitch';
+import PhotoSizeSelectActualIcon from '@mui/icons-material/PhotoSizeSelectActual';
 
 const CameraCaptureWithHeader = ({ title }) => {
   const webcamRef = useRef(null);
@@ -58,12 +60,13 @@ const CameraCaptureWithHeader = ({ title }) => {
         </div>
 
         {/* Capture and Camera Switch Buttons */}
-        <div className="flex space-x-6 mb-8 z-[1000]">
+        <div className="flex space-x-6 mb-8 pb-[30px] z-[1000]">
           <button
             onClick={toggleCamera}
-            className="w-14 h-14 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 flex items-center justify-center"
+            className="w-14 h-14 text-white rounded-full shadow-lg hover:bg-green-600 flex items-center justify-center"
           >
-            🖼️
+            
+            <PhotoSizeSelectActualIcon/>
           </button>
           <button
             onClick={capture}
@@ -73,9 +76,9 @@ const CameraCaptureWithHeader = ({ title }) => {
           </button>
           <button
             onClick={toggleCamera}
-            className="w-14 h-14 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 flex items-center justify-center"
+            className="w-14 h-14 text-white rounded-full shadow-lg hover:bg-green-600 flex items-center justify-center"
           >
-            🔄
+            <CameraswitchIcon/>
           </button>
         </div>
 
