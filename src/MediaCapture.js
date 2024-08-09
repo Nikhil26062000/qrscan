@@ -820,8 +820,6 @@
 
 // export default CameraCaptureWithHeader;
 
-
-
 import React, { useState, useRef } from 'react';
 import Webcam from 'react-webcam';
 import ClearIcon from '@mui/icons-material/Clear';
@@ -860,7 +858,7 @@ const CameraCaptureWithHeader = ({ title }) => {
     setIsRecording(true);
     setTimer(0);
 
-    const stream = webcamRef.current.stream; // This includes both video and audio tracks
+    const stream = webcamRef.current.stream;
     mediaRecorderRef.current = new MediaRecorder(stream, {
       mimeType: 'video/webm'
     });
@@ -880,28 +878,6 @@ const CameraCaptureWithHeader = ({ title }) => {
   const stopRecording = () => {
     setIsRecording(false);
     mediaRecorderRef.current.stop();
-  };
-
-  const handleDataAvailable = (event) => {
-    if (event.data.size > 0) {
-      const type = mediaRecorderRef.current.mimeType.includes('video') ? 'video' : 'audio';
-      const url = URL.createObjectURL(event.data);
-
-      if (type === 'video') {
-        setCapturedVideo(url);
-        setCapturedImage(null);
-        setCapturedAudio(null);
-      } else {
-        setCapturedAudio(url);
-        setCapturedImage(null);
-        setCapturedVideo(null);
-      }
-
-      const message = facingMode === 'user' ? `${type.charAt(0).toUpperCase() + type.slice(1)} captured from the front camera!` : `${type.charAt(0).toUpperCase() + type.slice(1)} captured from the back camera!`;
-      setPopupMessage(message);
-
-      setShowPopup(true);
-    }
   };
 
   const startAudioRecording = async () => {
@@ -930,6 +906,28 @@ const CameraCaptureWithHeader = ({ title }) => {
   const stopAudioRecording = () => {
     setAudioMode(false);
     mediaRecorderRef.current.stop();
+  };
+
+  const handleDataAvailable = (event) => {
+    if (event.data.size > 0) {
+      const type = mediaRecorderRef.current.mimeType.includes('video') ? 'video' : 'audio';
+      const url = URL.createObjectURL(event.data);
+
+      if (type === 'video') {
+        setCapturedVideo(url);
+        setCapturedImage(null);
+        setCapturedAudio(null);
+      } else {
+        setCapturedAudio(url);
+        setCapturedImage(null);
+        setCapturedVideo(null);
+      }
+
+      const message = facingMode === 'user' ? `${type.charAt(0).toUpperCase() + type.slice(1)} captured from the front camera!` : `${type.charAt(0).toUpperCase() + type.slice(1)} captured from the back camera!`;
+      setPopupMessage(message);
+
+      setShowPopup(true);
+    }
   };
 
   const toggleCamera = () => {
@@ -963,7 +961,7 @@ const CameraCaptureWithHeader = ({ title }) => {
           <ClearIcon className="text-[#FFFFFF] cursor-pointer" />
         </div>
         <div className="absolute">
-          <p className="font-inter font-[500] text-[16px] leading-[19.36px] text-[#FFFFFF]">Camera</p>
+          <p className="font-inter font-[500] text-[16px] leading-[19.36px] text-[#FFFFFF]">{title}</p>
         </div>
       </div>
 
@@ -971,7 +969,7 @@ const CameraCaptureWithHeader = ({ title }) => {
       <div className="relative mt-[-40px] flex flex-col items-center justify-end flex-1">
         {/* Webcam */}
         <Webcam
-          audio={true} // Ensure audio is enabled
+          audio={videoMode || audioMode} // Ensure audio is enabled only in video and audio modes
           ref={webcamRef}
           screenshotFormat="image/jpeg"
           videoConstraints={{ facingMode }}
@@ -981,19 +979,19 @@ const CameraCaptureWithHeader = ({ title }) => {
         {/* Dummy Options (Photo, Video, Audio) */}
         <div className="flex space-x-6 mb-4 z-[1000]">
           <button
-            onClick={() => setVideoMode(false) && setAudioMode(false)}
+            onClick={() => { setVideoMode(false); setAudioMode(false); }}
             className={`text-white font-semibold ${!videoMode && !audioMode && 'underline'}`}
           >
             Photo
           </button>
           <button
-            onClick={() => setVideoMode(true) && setAudioMode(false)}
+            onClick={() => { setVideoMode(true); setAudioMode(false); }}
             className={`text-white font-semibold ${videoMode && !audioMode && 'underline'}`}
           >
             Video
           </button>
           <button
-            onClick={() => setAudioMode(true) && setVideoMode(false)}
+            onClick={() => { setAudioMode(true); setVideoMode(false); }}
             className={`text-white font-semibold ${audioMode && !videoMode && 'underline'}`}
           >
             Audio
