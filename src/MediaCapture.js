@@ -1236,7 +1236,7 @@ const CameraCaptureWithHeader = ({ title }) => {
           <ClearIcon className="text-[#FFFFFF] cursor-pointer" />
         </div>
         <div className="absolute">
-          <p className="font-inter font-[500] text-[16px] leading-[19.36px] text-[#FFFFFF]">{title}</p>
+          <p className="font-inter font-[500] text-[16px] leading-[19.36px] text-[#FFFFFF]">Testing</p>
         </div>
       </div>
 
