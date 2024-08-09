@@ -1,19 +1,24 @@
 import React, { useState, useRef } from 'react';
 import Webcam from 'react-webcam';
-import ClearIcon from '@mui/icons-material/Clear'; // Ensure you import the icon
+import ClearIcon from '@mui/icons-material/Clear';
 import CameraswitchIcon from '@mui/icons-material/Cameraswitch';
 import PhotoSizeSelectActualIcon from '@mui/icons-material/PhotoSizeSelectActual';
 
 const CameraCaptureWithHeader = ({ title }) => {
   const webcamRef = useRef(null);
   const [facingMode, setFacingMode] = useState('user');
-  const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState('');
 
   const capture = () => {
     const imageSrc = webcamRef.current.getScreenshot();
     console.log(imageSrc);
-    setShowPopup(true);
-    setTimeout(() => setShowPopup(false), 2000);
+    
+    // Set the popup message based on the current facing mode
+    const message = facingMode === 'user' ? 'Picture captured from the front camera!' : 'Picture captured from the back camera!';
+    setPopupMessage(message);
+
+    // Clear the message after 2 seconds
+    setTimeout(() => setPopupMessage(''), 2000);
   };
 
   const toggleCamera = () => {
@@ -53,39 +58,34 @@ const CameraCaptureWithHeader = ({ title }) => {
         />
 
         {/* Dummy Options (Photo, Video, Audio) */}
-        <div className="flex space-x-6 mb-4 z-[1000] ">
-          <button className="text-white font-semibold"> Video</button>
+        <div className="flex space-x-6 mb-4 z-[1000]">
+          <button className="text-white font-semibold">Video</button>
           <button className="text-white font-semibold">Photo</button>
           <button className="text-white font-semibold">Audio</button>
         </div>
 
         {/* Capture and Camera Switch Buttons */}
         <div className="flex space-x-6 mb-8 pb-[30px] z-[1000]">
-          <button
-            onClick={toggleCamera}
-            className="w-14 h-14 text-white rounded-full shadow-lg hover:bg-green-600 flex items-center justify-center"
-          >
-            
-            <PhotoSizeSelectActualIcon/>
+          <button className="w-14 h-14 text-white rounded-full shadow-lg hover:bg-green-600 flex items-center justify-center">
+            <PhotoSizeSelectActualIcon />
           </button>
           <button
             onClick={capture}
-            className="w-16 h-16 bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-600 flex items-center justify-center"
+            className="w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center"
           >
             <span className="sr-only">Capture</span>
           </button>
           <button
             onClick={toggleCamera}
-            className="w-14 h-14 text-white rounded-full shadow-lg hover:bg-green-600 flex items-center justify-center"
-          >
-            <CameraswitchIcon/>
+            className="w-14 h-14 text-white rounded-full shadow-lg flex items-center justify-center">
+            <CameraswitchIcon />
           </button>
         </div>
 
         {/* Popup Notification */}
-        {showPopup && (
+        {popupMessage && (
           <div className="absolute top-14 left-1/2 transform -translate-x-1/2 bg-black text-white px-4 py-2 rounded-lg shadow-lg">
-            Picture Saved!
+            {popupMessage}
           </div>
         )}
       </div>
