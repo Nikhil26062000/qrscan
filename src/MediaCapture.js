@@ -18,30 +18,28 @@ const CameraCapture = () => {
   };
 
   return (
-    <div className="flex flex-col justify-between h-screen p-4 relative">
-      <div className="flex-1 flex items-center justify-center">
-        <Webcam
-          audio={false}
-          ref={webcamRef}
-          screenshotFormat="image/jpeg"
-          videoConstraints={{ facingMode }}
-          className="w-full max-w-sm h-auto border-2 border-gray-300 rounded-lg"
-        />
-      </div>
-      <div className="flex justify-between mt-4">
-        <button
-          onClick={toggleCamera}
-          className="px-4 py-2 bg-green-500 text-white font-semibold rounded-lg shadow-lg hover:bg-green-600"
-        >
-          Switch Camera
-        </button>
+    <div className="relative flex items-center justify-center h-screen w-screen">
+      <Webcam
+        audio={false}
+        ref={webcamRef}
+        screenshotFormat="image/jpeg"
+        videoConstraints={{ facingMode }}
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      />
+      <div className="absolute bottom-16 flex justify-center w-full">
         <button
           onClick={capture}
-          className="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-600"
+          className="w-16 h-16 bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-600 flex items-center justify-center"
         >
-          Capture Photo
+          <span className="sr-only">Capture</span>
         </button>
       </div>
+      <button
+        onClick={toggleCamera}
+        className="absolute top-8 right-8 w-10 h-10 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 flex items-center justify-center"
+      >
+        🔄
+      </button>
       {showPopup && (
         <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-black text-white px-4 py-2 rounded-lg shadow-lg">
           Picture Saved!
