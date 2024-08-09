@@ -133,3 +133,60 @@ code {
   margin-top: 1rem;
   border: 2px solid #ccc;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Styles for the VideoRecorder component */
+.video-recorder-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.video-recorder-container video {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.video-recorder-container button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.video-recorder-container button:hover {
+  background-color: #0056b3;
+}
+
+.video-recorder-container button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.video-recorder-container button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
